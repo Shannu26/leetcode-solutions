@@ -28,7 +28,7 @@ class Solution:
         # requried romanNumber string.
         # Then we take the remainder we get and store it in num, by doing
         # num = num % pair[1]
-        # Example: 33
+        # Example: 23
         # 23 // 10 == 3. So we add 'X' which is the roman value of 10, 2 times to get
         # 'XX'. And num = 23 % 10 == 3.
         # Then, 3 // 1 == 3. So we add 'I' which is the roman value of 1, 3 times to
