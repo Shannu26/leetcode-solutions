@@ -71,8 +71,8 @@ class Solution:
 
 #   Optimal solution
 
-#   Runtime: 29ms   -   86.35%
-#   Memory: 14.1MB  -   89.97%
+#   Runtime: 32ms   -   94.90%
+#   Memory: 13.9MB  -   93.38%
 
 ######################################################
 
