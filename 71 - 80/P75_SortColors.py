@@ -1,6 +1,6 @@
 ######################################################
 
-#   Solved on Saturday, 23 - 10 - 2021.
+#   Solved on Thursday, 02 - 01 - 2024.
 
 ######################################################
 
@@ -31,18 +31,33 @@ class Solution:
             should be zero. So if i < len(nums) - k we put 1 in nums[i] else we put 2
         """
 
-        # Variable to store number of 2's in array
-        twoCount = 0
-        # index represents the current pointer in the array in which we will place 0
+        # To track next index to set to 0
+        zerosIndex = 0
+        # To track next index to set to 2
+        twosIndex = len(nums) - 1
+
         index = 0
-        # Placing 0's in the beginning and finding 2's count
-        for i in range(len(nums)):
-            if nums[i] == 0:
-                nums[index] = 0
+        while index <= twosIndex:
+            # If value is 2, we swap it with value at twosIndex
+            if nums[index] == 2:
+                nums[index] = nums[twosIndex]
+                nums[twosIndex] = 2
+                # Updating twosIndex
+                twosIndex -= 1
+                # Since we don't know value at twosIndex
+                # It might be 0 or 1 or 2. So we shouln't 
+                # ignore it. So, not incrementing index
+            # If value is 0, we swap it with value at zerosIndex
+            elif nums[index] == 0:
+                nums[index] = nums[zerosIndex]
+                nums[zerosIndex] = 0
+                # Updating zerosIndex
+                zerosIndex += 1
+                # Since we come from left to right, we already
+                # know the value at zerosIndex since index is
+                # always >= zerosIndex. So, we don't have to 
+                # check its value again. So incrementing index
                 index += 1
-            if nums[i] == 2:
-                twoCount += 1
-        # Placing 1's and 2's in the arrray
-        for i in range(index, len(nums)):
-            if i < len(nums) - twoCount: nums[i] = 1
-            else: nums[i] = 2
+            # If value is 1, it should be in the middle only. So
+            # incrementing index
+            else: index += 1
